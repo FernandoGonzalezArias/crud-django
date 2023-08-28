@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <h1 class="text-center my-5">Información de laboratorio</h1>
+
+        <table class="table table-bordered table-primary">
+
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col">Pais</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for lab in labos %}
+                <tr>
+                    <td>{{ lab.nombre }}</td>
+                    <td>{{ lab.ciudad }}</td>
+                    <td>{{ lab.pais }}</td>
+                    <td>
+                        <a href="/update/{{lab.id}}" class="btn btn-sm btn-info">Actualizar</a>
+                        
+                    </td>
+                    <td><a href="/delete/{{lab.id}}" class="btn btn-sm btn-danger">Eliminar</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        
+        <div class="col-md-2 mb-3">
+            <a href="/create" class="btn btn-primary">Crear Laboratorio</a>
+        </div>
+        <div class="lead">
+            Has visitado esta página {{ numveces }} veces.
+        </div>
+    </div>
+</div>
+
+{% endblock %}

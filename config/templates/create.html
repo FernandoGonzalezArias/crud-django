@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container col-md-4 mt-3 ">
+    <div class="row">
+
+        <h1 class="text-center m-3 ">Crear laboratorio</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{ formulario.as_p }}
+
+        <button type="submit" class="m-3">Guardar</button>
+    </form>
+
+    </div>
+</div>
+    
+{% endblock %}
